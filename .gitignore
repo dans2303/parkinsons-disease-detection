@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Data (private)
+data/raw/
+data/processed/
+
+# Models
+models/*.pkl
+models/*.joblib
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Env
+venv/
+.env
+
+# OS
+.DS_Store
