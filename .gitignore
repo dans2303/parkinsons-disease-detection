@@ -1,21 +1,57 @@
+# ================================
 # Python
+# ================================
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Data (private)
+# ================================
+# Data (PRIVATE - DO NOT UPLOAD)
+# ================================
 data/raw/
 data/processed/
 
-# Models
-models/*.pkl
-models/*.joblib
+# ================================
+# Models (trained artifacts)
+# ================================
+models/
+*.pkl
+*.joblib
 
-# Notebooks
+# ================================
+# Jupyter Notebooks
+# ================================
 .ipynb_checkpoints/
 
-# Env
+# ================================
+# Virtual Environments
+# ================================
 venv/
 .env
+.env.*
+.venv/
 
-# OS
+# ================================
+# OS / System Files
+# ================================
 .DS_Store
+Thumbs.db
+
+# ================================
+# Logs & Temporary Files
+# ================================
+*.log
+*.tmp
+
+# ================================
+# CatBoost (IMPORTANT)
+# ================================
+catboost_info/
+notebooks/catboost_info/
+
+# ================================
+# IDE (optional but good practice)
+# ================================
+.vscode/
+.idea/
