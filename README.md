@@ -171,6 +171,7 @@ parkinsons-disease-detection/
 ## 📬 Contact
 
 📧 Email: [mirnadanisat@gmail.com](mailto:mirnadanisat@gmail.com)
+
 🔗 GitHub: https://github.com/dans2303
 
 ---
