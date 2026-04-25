@@ -1,181 +1,170 @@
-# 🧠 Parkinson’s Disease Detection Using Voice Features
+# 🧠 Parkinson’s Disease Detection Using Voice Biomarkers
 
 🎓 M.Sc. Electrical Engineering — National Central University (Taiwan)
 
-🔬 Biomedical AI | Machine Learning | Deep Learning
+🔬 Biomedical AI | Machine Learning | Explainable AI
 
 ---
 
-## 📌 Project Overview
+## 🚀 Project Overview
 
-This project develops a **machine learning pipeline for early detection of Parkinson’s Disease** using **MDVP (voice-based) acoustic features**.
+This project develops a **machine learning pipeline for early detection of Parkinson’s Disease** using **voice-based biomedical features (MDVP)**.
 
-The goal is to:
+Unlike typical ML projects, this work emphasizes:
 
-* Build accurate classification models
-* Compare classical and modern machine learning methods
-* Provide **interpretable insights** into vocal biomarkers using SHAP
+* ✅ Robust model comparison
+* ✅ Cross-validation for reliability
+* ✅ Explainable AI (SHAP) for interpretability
 
 ---
 
-## 📊 Dataset
+## 📊 Problem Statement
 
-* Type: Tabular biomedical data (MDVP voice features)
-* Target: `status` (Parkinson’s = 1, Healthy = 0)
-* Samples: ~200+
-* Features: Jitter, Shimmer, Frequency-based biomarkers
+Parkinson’s Disease affects speech patterns early, making **voice analysis a promising non-invasive diagnostic tool**.
 
-⚠️ **Note:**
-The original dataset is **not publicly available** due to privacy and ethical considerations.
-A sample dataset is provided for demonstration purposes.
+The goal:
+
+> Build a reliable and interpretable model to detect Parkinson’s Disease from voice features.
 
 ---
 
 ## ⚙️ Methodology
 
-### 1. Data Processing
+### Data Processing
 
 * Removed identifier column (`name`)
 * Removed duplicate samples
 * Removed constant features
-* Standardized features using `StandardScaler`
+* Standardized features
 
 ---
 
-### 2. Models Evaluated
+### Models Evaluated
 
-| Category            | Models                      |
-| ------------------- | --------------------------- |
-| Linear              | Logistic Regression         |
-| Kernel-based        | SVM (RBF)                   |
-| Ensemble (Bagging)  | Random Forest               |
-| Ensemble (Boosting) | Gradient Boosting           |
-| Modern Boosting     | XGBoost, LightGBM, CatBoost |
+* Logistic Regression
+* SVM (RBF Kernel)
+* Random Forest
+* Gradient Boosting
+* XGBoost
+* LightGBM
+* CatBoost
 
 ---
 
-### 3. Evaluation Strategy
+### Evaluation Strategy
 
 * Stratified Train/Test Split (80/20)
 * 5-Fold Stratified Cross-Validation
 * Metrics:
 
-  * Accuracy
-  * Precision
-  * Recall
-  * F1-score
+  * F1-score ⭐ (primary)
   * ROC-AUC
-  * Matthews Correlation Coefficient (MCC)
-
-📌 Due to class imbalance, **F1-score, ROC-AUC, and MCC** were prioritized.
+  * MCC (robust for imbalance)
 
 ---
 
-## 🏆 Model Performance
+## 🏆 Key Results
 
-### Key Findings
+### 📌 Best Models
 
-* **Gradient Boosting** achieved the highest test performance
-* **XGBoost** showed the most stable cross-validation results
-* Modern boosting models consistently outperformed classical methods
+| Model             | F1 Score   | CV F1 (Mean ± Std) |
+| ----------------- | ---------- | ------------------ |
+| Gradient Boosting | **0.9737** | 0.924 ± 0.023      |
+| XGBoost           | 0.9610     | **0.943 ± 0.018**  |
 
-📊 Example (Cross-Validation):
+---
+
+### 🧠 Insights
+
+* Gradient Boosting achieved the **highest performance**
+* XGBoost showed the **most stable generalization**
+* Modern boosting models consistently outperformed classical ML
+
+---
+
+## 🔍 Explainable AI (SHAP)
+
+To move beyond “black-box” predictions, SHAP was used to interpret model behavior.
+
+### 🔑 Most Influential Features
+
+* `vAm`
+* `VTI`
+* `vfo`
+* `RAP`
+* `SPI`
+
+---
+
+### 📈 Key Insight
+
+Higher values of these features strongly push predictions toward:
 
 ```text
-XGBoost F1-score ≈ 0.94 ± 0.02
+Parkinson’s Disease (class 1)
 ```
 
 ---
 
-## 🔍 Model Interpretability (SHAP)
+### 🧬 Example (Individual Prediction)
 
-SHAP analysis was applied to the **XGBoost model** to understand feature contributions.
+SHAP reveals that predictions are driven by **combined feature contributions**, not a single factor:
 
-### 🔑 Key Insights
-
-* Most influential features:
-
-  * `vAm`
-  * `VTI`
-  * `vfo`
-  * `RAP`
-  * `SPI`
-
-* Higher values of these features tend to push predictions toward **Parkinson’s Disease classification**
+* VTI → strong positive impact
+* RAP → moderate contribution
+* vfo → meaningful influence
 
 ---
 
-### 📈 SHAP Visualizations
+## ⚠️ Important Note
 
-* Global feature importance
-* Feature impact distribution
-* Individual prediction explanation
+SHAP explains **model behavior**, not medical causality.
 
-📌 SHAP helps explain **model behavior**, not medical causality.
+Further clinical validation is required before real-world application.
 
 ---
 
 ## 📁 Project Structure
 
-```text
-parkinsons-disease-detection/
-│
-├── data/
-│   ├── raw/           # (ignored)
-│   ├── processed/     # (ignored)
-│   ├── sample/        # sample dataset
-│
-├── notebooks/
-│   ├── 01_data_exploration.ipynb
-│   ├── 02_gradient_boosting.ipynb
-│   ├── 03_xgboost.ipynb
-│   ├── 04_model_comparison.ipynb
-│   ├── 05_interpretability_shap.ipynb
-│
-├── results/
-│   ├── figures/
-│   ├── metrics/
-│
-├── src/
-├── README.md
+```
+notebooks/
+├── 01_data_exploration.ipynb
+├── 02_gradient_boosting.ipynb
+├── 03_xgboost.ipynb
+├── 04_model_comparison.ipynb
+├── 05_interpretability_shap.ipynb
+
+results/
+├── figures/
+├── metrics/
 ```
 
 ---
 
 ## 🧠 Key Contributions
 
-* End-to-end machine learning pipeline for biomedical classification
-* Comparative analysis of classical vs modern models
-* Robust evaluation using cross-validation
-* SHAP-based interpretability for clinical insight
-
----
-
-## ⚠️ Limitations
-
-* Small dataset size (~200 samples)
-* Class imbalance
-* No external validation dataset
+* End-to-end biomedical ML pipeline
+* Strong model comparison (7 models)
+* Cross-validation for reliability
+* Explainable AI integration (SHAP)
 
 ---
 
 ## 🚀 Future Work
 
-* Apply SMOTE or class balancing techniques
-* Evaluate deep learning approaches (FastAI Tabular)
-* Test on larger and external datasets
-* Compare interpretability across multiple models
+* Larger dataset validation
+* Class balancing techniques (SMOTE)
+* Deep learning comparison (FastAI Tabular)
+* Clinical collaboration
 
 ---
 
 ## 📬 Contact
 
-📧 Email: [mirnadanisat@gmail.com](mailto:mirnadanisat@gmail.com)
+📧 [mirnadanisat@gmail.com](mailto:mirnadanisat@gmail.com)
 
-🔗 GitHub: https://github.com/dans2303
+🔗 https://github.com/dans2303
 
 ---
 
-## ⭐ Final Note
-
-This project demonstrates not only predictive performance but also **interpretability and reproducibility**, which are essential for real-world biomedical AI applications.
+⭐ This project demonstrates both **predictive performance and interpretability**, which are critical for real-world biomedical AI.
