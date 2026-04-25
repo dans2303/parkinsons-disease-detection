@@ -1,6 +1,7 @@
 # 🧠 Parkinson’s Disease Detection Using Voice Features
 
 🎓 M.Sc. Electrical Engineering — National Central University (Taiwan)
+
 🔬 Biomedical AI | Machine Learning | Deep Learning
 
 ---
