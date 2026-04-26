@@ -1,170 +1,197 @@
-# 🧠 Parkinson’s Disease Detection Using Voice Biomarkers
+# 🧠 Parkinson’s Disease Detection with Explainable AI
 
-🎓 M.Sc. Electrical Engineering — National Central University (Taiwan)
-
-🔬 Biomedical AI | Machine Learning | Explainable AI
+This project presents an end-to-end machine learning system for detecting Parkinson’s Disease using MDVP voice biomarkers, enhanced with explainability (SHAP) and AI-generated interpretations (LLM).
 
 ---
 
-## 🚀 Project Overview
+## 🚀 Project Highlights
 
-This project develops a **machine learning pipeline for early detection of Parkinson’s Disease** using **voice-based biomedical features (MDVP)**.
-
-Unlike typical ML projects, this work emphasizes:
-
-* ✅ Robust model comparison
-* ✅ Cross-validation for reliability
-* ✅ Explainable AI (SHAP) for interpretability
+* 📊 Machine Learning Models: Gradient Boosting, XGBoost
+* 🧠 Explainability: SHAP (feature contribution analysis)
+* 🤖 AI Explanation Layer: OpenAI LLM (human-readable interpretation)
+* 🌐 Interactive App: Streamlit interface for real-time prediction
 
 ---
 
-## 📊 Problem Statement
+## 🧠 Problem Motivation
 
-Parkinson’s Disease affects speech patterns early, making **voice analysis a promising non-invasive diagnostic tool**.
+Parkinson’s Disease affects speech patterns, which can be captured using voice biomarkers such as jitter, shimmer, and turbulence indices.
 
-The goal:
-
-> Build a reliable and interpretable model to detect Parkinson’s Disease from voice features.
+This project explores how machine learning can detect patterns in these features and provide interpretable predictions.
 
 ---
 
-## ⚙️ Methodology
+## 🏗️ System Architecture
 
-### Data Processing
-
-* Removed identifier column (`name`)
-* Removed duplicate samples
-* Removed constant features
-* Standardized features
-
----
-
-### Models Evaluated
-
-* Logistic Regression
-* SVM (RBF Kernel)
-* Random Forest
-* Gradient Boosting
-* XGBoost
-* LightGBM
-* CatBoost
-
----
-
-### Evaluation Strategy
-
-* Stratified Train/Test Split (80/20)
-* 5-Fold Stratified Cross-Validation
-* Metrics:
-
-  * F1-score ⭐ (primary)
-  * ROC-AUC
-  * MCC (robust for imbalance)
-
----
-
-## 🏆 Key Results
-
-### 📌 Best Models
-
-| Model             | F1 Score   | CV F1 (Mean ± Std) |
-| ----------------- | ---------- | ------------------ |
-| Gradient Boosting | **0.9737** | 0.924 ± 0.023      |
-| XGBoost           | 0.9610     | **0.943 ± 0.018**  |
-
----
-
-### 🧠 Insights
-
-* Gradient Boosting achieved the **highest performance**
-* XGBoost showed the **most stable generalization**
-* Modern boosting models consistently outperformed classical ML
-
----
-
-## 🔍 Explainable AI (SHAP)
-
-To move beyond “black-box” predictions, SHAP was used to interpret model behavior.
-
-### 🔑 Most Influential Features
-
-* `vAm`
-* `VTI`
-* `vfo`
-* `RAP`
-* `SPI`
-
----
-
-### 📈 Key Insight
-
-Higher values of these features strongly push predictions toward:
-
-```text
-Parkinson’s Disease (class 1)
+```
+Input (MDVP Features)
+        ↓
+ML Model (XGBoost Pipeline)
+        ↓
+Prediction + Probability
+        ↓
+SHAP (Feature Contribution)
+        ↓
+LLM (Natural Language Explanation)
 ```
 
 ---
 
-### 🧬 Example (Individual Prediction)
+## 📊 Model Performance
 
-SHAP reveals that predictions are driven by **combined feature contributions**, not a single factor:
+* Multiple models evaluated:
 
-* VTI → strong positive impact
-* RAP → moderate contribution
-* vfo → meaningful influence
+  * Logistic Regression
+  * SVM
+  * Random Forest
+  * Gradient Boosting
+  * XGBoost
+  * LightGBM
+  * CatBoost
+
+* Final model selected: **XGBoost (robust performance + stability)**
+
+Metrics include:
+
+* Accuracy
+* F1 Score
+* ROC-AUC
+* Cross-validation analysis
 
 ---
 
-## ⚠️ Important Note
+## 🔍 Explainability (SHAP)
 
-SHAP explains **model behavior**, not medical causality.
+SHAP is used to:
 
-Further clinical validation is required before real-world application.
+* Identify top contributing features per prediction
+* Provide local interpretability
+* Analyze model behavior
+
+Example important features:
+
+* VTI (Voice Turbulence Index)
+* vAm (Amplitude Variation)
+* vfo (Fundamental Frequency Variation)
+
+---
+
+## 🤖 AI Explanation Layer
+
+An LLM is integrated to translate SHAP outputs into human-readable explanations.
+
+Example:
+
+> "The model predicts a higher likelihood of Parkinson’s Disease.
+> Features such as VTI and vAm contributed strongly to this prediction."
+
+⚠️ These explanations describe model behavior, not medical diagnosis.
+
+---
+
+## 🌐 Streamlit App
+
+The app supports:
+
+* ✔ Sample data input
+* ✔ CSV upload
+* ✔ Manual feature entry
+* ✔ Interactive SHAP visualization
+* ✔ AI-generated explanations
+
+---
+
+## ⚠️ Privacy & Data
+
+* The original dataset is **not publicly available**
+* A **synthetic sample input** is provided for demonstration
+* Model artifacts are not uploaded and must be regenerated locally
+
+---
+
+## ▶️ How to Run
+
+### 1. Clone repository
+
+```
+git clone https://github.com/your-username/parkinsons-disease-detection.git
+cd parkinsons-disease-detection
+```
+
+---
+
+### 2. Create environment
+
+```
+conda create -n parkinson_app python=3.9
+conda activate parkinson_app
+pip install streamlit pandas scikit-learn xgboost shap openai joblib matplotlib
+```
+
+---
+
+### 3. Export model
+
+Run:
+
+```
+notebooks/06_app_model_export.ipynb
+```
+
+---
+
+### 4. Set API key
+
+```
+set OPENAI_API_KEY=your_key_here
+```
+
+---
+
+### 5. Run app
+
+```
+streamlit run app/streamlit_app.py
+```
 
 ---
 
 ## 📁 Project Structure
 
 ```
-notebooks/
-├── 01_data_exploration.ipynb
-├── 02_gradient_boosting.ipynb
-├── 03_xgboost.ipynb
-├── 04_model_comparison.ipynb
-├── 05_interpretability_shap.ipynb
-
-results/
-├── figures/
-├── metrics/
+app/                → Streamlit app
+src/                → LLM explanation module
+notebooks/          → modeling and experiments
+results/            → metrics and visualizations
+models/             → saved models (ignored in Git)
+data/               → dataset (private)
 ```
 
 ---
 
-## 🧠 Key Contributions
+## 🎯 Key Takeaways
 
-* End-to-end biomedical ML pipeline
-* Strong model comparison (7 models)
-* Cross-validation for reliability
-* Explainable AI integration (SHAP)
+This project demonstrates:
 
----
-
-## 🚀 Future Work
-
-* Larger dataset validation
-* Class balancing techniques (SMOTE)
-* Deep learning comparison (FastAI Tabular)
-* Clinical collaboration
+* End-to-end ML pipeline development
+* Model comparison and evaluation
+* Explainable AI using SHAP
+* Integration of LLM for interpretability
+* Deployment via interactive application
 
 ---
 
-## 📬 Contact
+## 📌 Future Work
 
-📧 [mirnadanisat@gmail.com](mailto:mirnadanisat@gmail.com)
-
-🔗 https://github.com/dans2303
+* External dataset validation
+* Feature selection optimization
+* Lightweight deployment (API-based)
+* Clinical collaboration for validation
 
 ---
 
-⭐ This project demonstrates both **predictive performance and interpretability**, which are critical for real-world biomedical AI.
+## 👩‍💻 Author
+
+**Danisa**
+M.Sc. Electrical Engineering — National Central University (Taiwan)
+Biomedical AI | Machine Learning | Explainable AI
