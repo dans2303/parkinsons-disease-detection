@@ -1,19 +1,19 @@
-# 🧠 Parkinson’s Disease Detection with Explainable AI
+# Parkinson’s Disease Detection with Explainable AI
 
 This project presents an end-to-end machine learning system for detecting Parkinson’s Disease using MDVP voice biomarkers, enhanced with explainability (SHAP) and AI-generated interpretations (LLM).
 
 ---
 
-## 🚀 Project Highlights
+## Project Highlights
 
-* 📊 Machine Learning Models: Gradient Boosting, XGBoost
-* 🧠 Explainability: SHAP (feature contribution analysis)
-* 🤖 AI Explanation Layer: OpenAI LLM (human-readable interpretation)
-* 🌐 Interactive App: Streamlit interface for real-time prediction
+* Machine Learning Models: Gradient Boosting, XGBoost
+* Explainability: SHAP (feature contribution analysis)
+* AI Explanation Layer: OpenAI LLM (human-readable interpretation)
+* Interactive App: Streamlit interface for real-time prediction
 
 ---
 
-## 🧠 Problem Motivation
+## Problem Motivation
 
 Parkinson’s Disease affects speech patterns, which can be captured using voice biomarkers such as jitter, shimmer, and turbulence indices.
 
@@ -21,7 +21,7 @@ This project explores how machine learning can detect patterns in these features
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 Input (MDVP Features)
@@ -37,7 +37,7 @@ LLM (Natural Language Explanation)
 
 ---
 
-## 📊 Model Performance
+## Model Performance
 
 * Multiple models evaluated:
 
@@ -60,7 +60,7 @@ Metrics include:
 
 ---
 
-## 🔍 Explainability (SHAP)
+## Explainability (SHAP)
 
 SHAP is used to:
 
@@ -76,7 +76,7 @@ Example important features:
 
 ---
 
-## 🤖 AI Explanation Layer
+## AI Explanation Layer
 
 An LLM is integrated to translate SHAP outputs into human-readable explanations.
 
@@ -85,11 +85,11 @@ Example:
 > "The model predicts a higher likelihood of Parkinson’s Disease.
 > Features such as VTI and vAm contributed strongly to this prediction."
 
-⚠️ These explanations describe model behavior, not medical diagnosis.
+These explanations describe model behavior, not medical diagnosis.
 
 ---
 
-## 🌐 Streamlit App
+## Streamlit App
 
 The app supports:
 
@@ -101,7 +101,7 @@ The app supports:
 
 ---
 
-## ⚠️ Privacy & Data
+## Privacy & Data
 
 * The original dataset is **not publicly available**
 * A **synthetic sample input** is provided for demonstration
@@ -109,7 +109,7 @@ The app supports:
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 ### 1. Clone repository
 
@@ -156,7 +156,7 @@ streamlit run app/streamlit_app.py
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 app/                → Streamlit app
@@ -169,7 +169,7 @@ data/               → dataset (private)
 
 ---
 
-## 🎯 Key Takeaways
+## Key Takeaways
 
 This project demonstrates:
 
@@ -181,7 +181,7 @@ This project demonstrates:
 
 ---
 
-## 📌 Future Work
+## Future Work
 
 * External dataset validation
 * Feature selection optimization
@@ -190,7 +190,7 @@ This project demonstrates:
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Danisa**
 
