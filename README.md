@@ -1,43 +1,57 @@
 # Parkinson’s Disease Detection with Explainable AI
 
-This project presents an end-to-end machine learning system for detecting Parkinson’s Disease using MDVP voice biomarkers, enhanced with explainability (SHAP) and AI-generated interpretations (LLM).
+An end-to-end **Biomedical AI system** for detecting Parkinson’s Disease from voice biomarkers, enhanced with **Explainable AI (SHAP)** and **LLM-based interpretation**.
 
 ---
 
-## Project Highlights
+## 🎯 Problem & Motivation
 
-* Machine Learning Models: Gradient Boosting, XGBoost
-* Explainability: SHAP (feature contribution analysis)
-* AI Explanation Layer: OpenAI LLM (human-readable interpretation)
-* Interactive App: Streamlit interface for real-time prediction
+Parkinson’s Disease affects motor control, including **speech production**.  
+Subtle variations in voice—such as **jitter, shimmer, and turbulence**— can act as early indicators.
 
----
+Traditional diagnosis:
+- Requires clinical expertise  
+- Often occurs at later stages  
 
-## Problem Motivation
-
-Parkinson’s Disease affects speech patterns, which can be captured using voice biomarkers such as jitter, shimmer, and turbulence indices.
-
-This project explores how machine learning can detect patterns in these features and provide interpretable predictions.
+👉 This project explores a **non-invasive, data-driven approach** for early screening using voice biomarkers.
 
 ---
 
-## System Architecture
+## System Overview
 
 ```
-Input (MDVP Features)
+Voice Features (MDVP)
         ↓
-ML Model (XGBoost Pipeline)
+Feature Processing
+        ↓
+XGBoost Model
         ↓
 Prediction + Probability
         ↓
 SHAP (Feature Contribution)
         ↓
-LLM (Natural Language Explanation)
+LLM (Human-Readable Explanation)
 ```
 
 ---
 
-## Model Performance
+## 🚀 Key Features
+
+- 📊 **Machine Learning Pipeline**  
+  Gradient Boosting, XGBoost, and model benchmarking  
+
+- 🧠 **Explainable AI (XAI)**  
+  SHAP for feature-level interpretability  
+
+- 🤖 **AI Explanation Layer**  
+  LLM-generated natural language explanations  
+
+- 🌐 **Interactive Application**  
+  Streamlit interface for real-time predictions  
+
+---
+
+## Model Development and Performance
 
 * Multiple models evaluated:
 
@@ -50,9 +64,9 @@ LLM (Natural Language Explanation)
   * CatBoost
 
 * Final model selected: **XGBoost (robust performance + stability)**
+Chosen for its strong performance and robustness on structured biomedical data.
 
 Metrics include:
-
 * Accuracy
 * F1 Score
 * ROC-AUC
@@ -68,7 +82,7 @@ SHAP is used to:
 * Provide local interpretability
 * Analyze model behavior
 
-Example important features:
+**Key contributing features:**
 
 * VTI (Voice Turbulence Index)
 * vAm (Amplitude Variation)
@@ -78,7 +92,7 @@ Example important features:
 
 ## AI Explanation Layer
 
-An LLM is integrated to translate SHAP outputs into human-readable explanations.
+To improve usability, SHAP outputs are translated into **human-readable explanations**
 
 Example:
 
@@ -89,23 +103,23 @@ These explanations describe model behavior, not medical diagnosis.
 
 ---
 
-## Streamlit App
+## Streamlit Application
 
-The app supports:
+The system includes an interactive app with:
 
-* ✔ Sample data input
-* ✔ CSV upload
-* ✔ Manual feature entry
-* ✔ Interactive SHAP visualization
-* ✔ AI-generated explanations
-
+- ✔ Manual feature input  
+- ✔ CSV upload  
+- ✔ Real-time prediction  
+- ✔ SHAP visualization  
+- ✔ AI-generated explanation
+  
 ---
 
 ## Privacy & Data
 
-* The original dataset is **not publicly available**
-* A **synthetic sample input** is provided for demonstration
-* Model artifacts are not uploaded and must be regenerated locally
+- Original dataset is **not publicly available**  
+- Synthetic sample data is provided for demonstration  
+- Model artifacts must be generated locally  
 
 ---
 
@@ -173,11 +187,11 @@ data/               → dataset (private)
 
 This project demonstrates:
 
-* End-to-end ML pipeline development
-* Model comparison and evaluation
-* Explainable AI using SHAP
-* Integration of LLM for interpretability
-* Deployment via interactive application
+* End-to-end ML pipeline design
+* Model benchmarking & evaluation
+* Explainable AI integration (SHAP)
+* Bridging ML + LLM for interpretability
+* Deployment through an interactive system
 
 ---
 
