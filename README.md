@@ -4,16 +4,16 @@ An end-to-end **Biomedical AI system** for detecting Parkinson’s Disease from 
 
 ---
 
-## 🎯 Problem & Motivation
+## Problem & Motivation
 
 Parkinson’s Disease affects motor control, including **speech production**.  
-Subtle variations in voice—such as **jitter, shimmer, and turbulence**— can act as early indicators.
+Subtle variations in voice, such as **jitter, shimmer, and turbulence** can act as early indicators.
 
 Traditional diagnosis:
 - Requires clinical expertise  
 - Often occurs at later stages  
 
-👉 This project explores a **non-invasive, data-driven approach** for early screening using voice biomarkers.
+This project explores a **non-invasive, data-driven approach** for early screening using voice biomarkers.
 
 ---
 
@@ -35,18 +35,18 @@ LLM (Human-Readable Explanation)
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-- 📊 **Machine Learning Pipeline**  
+- **Machine Learning Pipeline**  
   Gradient Boosting, XGBoost, and model benchmarking  
 
-- 🧠 **Explainable AI (XAI)**  
+- **Explainable AI (XAI)**  
   SHAP for feature-level interpretability  
 
-- 🤖 **AI Explanation Layer**  
+- **AI Explanation Layer**  
   LLM-generated natural language explanations  
 
-- 🌐 **Interactive Application**  
+- **Interactive Application**  
   Streamlit interface for real-time predictions  
 
 ---
